@@ -16,12 +16,12 @@ public class CsvFileParser : IFileParser
         // Check if the file exists
         if (File.Exists(filePath))
         {
-            // Open the file for reading
+            // Initialize a line count for error reporting
+            int lineCount = 1;
+
+            // Read the file line by line until the end is reached
             using (StreamReader reader = new StreamReader(filePath))
             {
-                int lineCount = 1; // Initialize a line count for error reporting
-
-                // Read the file line by line until the end is reached
                 while (!reader.EndOfStream)
                 {
                     string line = reader.ReadLine(); // Read a line from the file
@@ -30,14 +30,20 @@ public class CsvFileParser : IFileParser
                     // Check if there are at least 6 fields
                     if (fields.Length >= 6)
                     {
-                        // create an output file for writing
-                        using (StreamWriter writer = new StreamWriter(@"C:\Users\markg\source\repos\TextFileAssigment\" + Path.GetFileNameWithoutExtension(filePath) + "_out.txt", true))
+                        // Get the directory where the source file is located
+                        string sourceDirectory = Path.GetDirectoryName(filePath);
+
+                        // Create the output file path in the same directory
+                        string outputFilePath = Path.Combine(sourceDirectory, Path.GetFileNameWithoutExtension(filePath) + "_out.txt");
+
+                        // Create an output file for writing
+                        using (StreamWriter writer = new StreamWriter(outputFilePath, true))
                         {
                             // Write the parsed data to the output file
                             writer.WriteLine($"Line#{lineCount} :Field#1={fields[0]} ==> Field#2={fields[1]} ==> Field#3={fields[2]} ==> Field#4={fields[3]} ==> Field#5={fields[4]} ==> Field#6={fields[5]}");
                         }
 
-                        // success message
+                        // Success message
                         Console.WriteLine($"Processed {Path.GetFileName(filePath)} successfully.");
                     }
                     else
@@ -51,52 +57,68 @@ public class CsvFileParser : IFileParser
         }
         else
         {
-            //  error message if file not found
+            // Error message if the file is not found
             Console.WriteLine($"File not found: {filePath}");
         }
     }
 }
 
-//  class for parsing pipe-delimited files
+// Create a class for parsing pipe-delimited files
 public class PipeFileParser : IFileParser
 {
     public void ParseFile(string filePath)
     {
+        // Check if the file exists
         if (File.Exists(filePath))
         {
+            // Initialize a line count for error reporting
+            int lineCount = 1;
+
+            // Read the file line by line until the end is reached
             using (StreamReader reader = new StreamReader(filePath))
             {
-                int lineCount = 1;
                 while (!reader.EndOfStream)
                 {
                     string line = reader.ReadLine();
                     string[] fields = line.Split('|'); // Split the line by pipe character
 
+                    // Check if there are at least 7 fields
                     if (fields.Length >= 7)
                     {
-                        using (StreamWriter writer = new StreamWriter(@"C:\Users\markg\source\repos\TextFileAssigment\" + Path.GetFileNameWithoutExtension(filePath) + "_out.txt", true))
+                        // Get the directory where the source file is located
+                        string sourceDirectory = Path.GetDirectoryName(filePath);
+
+                        // Create the output file path in the same directory
+                        string outputFilePath = Path.Combine(sourceDirectory, Path.GetFileNameWithoutExtension(filePath) + "_out.txt");
+
+                        // Create an output file for writing
+                        using (StreamWriter writer = new StreamWriter(outputFilePath, true))
                         {
+                            // Write the parsed data to the output file
                             writer.WriteLine($"Line#{lineCount} :Field#1={fields[0]} ==> Field#2={fields[1]} ==> Field#3={fields[2]} ==> Field#4={fields[3]} ==> Field#5={fields[4]} ==> Field#6={fields[5]} ==> Field#7={fields[6]}");
                         }
 
+                        // Success message
                         Console.WriteLine($"Processed {Path.GetFileName(filePath)} successfully.");
                     }
                     else
                     {
+                        // Display an error message for invalid format
                         Console.WriteLine($"Invalid format in line {lineCount} of {filePath}");
                     }
-                    lineCount++;
+                    lineCount++; // Increment the line count for the next line
                 }
             }
         }
         else
         {
+            // Error message if the file is not found
             Console.WriteLine($"File not found: {filePath}");
         }
     }
 }
 
-//  class for processing the files
+// Create a class for processing the files
 public class FileParserEngine
 {
     public void ProcessFiles(List<string> filePaths)
@@ -136,8 +158,8 @@ class Program
     {
         List<string> filesToProcess = new List<string>
         {
-            @"C:\Users\markg\source\repos\TextFileAssigment\SampleCSV.csv",
-            @"C:\Users\markg\source\repos\TextFileAssigment\SamplePipe.txt"
+            "SampleCSV.csv",
+            "SamplePipe.txt"
         };
 
         var parserEngine = new FileParserEngine();
