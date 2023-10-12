@@ -1,0 +1,15 @@
+C:\Users\markg\source\repos\TextFileAssigment\bin\Debug\net6.0\TextFileAssigment.exe
+C:\Users\markg\source\repos\TextFileAssigment\bin\Debug\net6.0\TextFileAssigment.deps.json
+C:\Users\markg\source\repos\TextFileAssigment\bin\Debug\net6.0\TextFileAssigment.runtimeconfig.json
+C:\Users\markg\source\repos\TextFileAssigment\bin\Debug\net6.0\TextFileAssigment.dll
+C:\Users\markg\source\repos\TextFileAssigment\bin\Debug\net6.0\TextFileAssigment.pdb
+C:\Users\markg\source\repos\TextFileAssigment\obj\Debug\net6.0\TextFileAssigment.csproj.AssemblyReference.cache
+C:\Users\markg\source\repos\TextFileAssigment\obj\Debug\net6.0\TextFileAssigment.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\markg\source\repos\TextFileAssigment\obj\Debug\net6.0\TextFileAssigment.AssemblyInfoInputs.cache
+C:\Users\markg\source\repos\TextFileAssigment\obj\Debug\net6.0\TextFileAssigment.AssemblyInfo.cs
+C:\Users\markg\source\repos\TextFileAssigment\obj\Debug\net6.0\TextFileAssigment.csproj.CoreCompileInputs.cache
+C:\Users\markg\source\repos\TextFileAssigment\obj\Debug\net6.0\TextFileAssigment.dll
+C:\Users\markg\source\repos\TextFileAssigment\obj\Debug\net6.0\refint\TextFileAssigment.dll
+C:\Users\markg\source\repos\TextFileAssigment\obj\Debug\net6.0\TextFileAssigment.pdb
+C:\Users\markg\source\repos\TextFileAssigment\obj\Debug\net6.0\TextFileAssigment.genruntimeconfig.cache
+C:\Users\markg\source\repos\TextFileAssigment\obj\Debug\net6.0\ref\TextFileAssigment.dll
